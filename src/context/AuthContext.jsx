@@ -1,15 +1,15 @@
 import { createContext, useState } from "react";
 import {
-  createUserWithEmailAndPassword,
-  onAuthStateChanged,
-  signOut,
+  createUserWithEmailAndPassword,//build in fire base to create account 
+  onAuthStateChanged,// from firebase to know state of user if logout or defferent user
+  signOut,//buld in firesbase to logout
   signInWithEmailAndPassword,
   sendPasswordResetEmail,
   updatePassword,
   updateEmail,
 } from "firebase/auth";
-import auth from "../firebase";
-import { useEffect } from "react";
+import auth from "../firebase";//get data from my file js contain app firebase
+import { useEffect } from "react";//to handel if changed state of user
 import { useContext } from "react";
 const AuthContext = createContext();
 
@@ -19,6 +19,7 @@ const AuthProvider = ({ children }) => {
   const signup = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
+  //this method 
   const logout = () => {
     return signOut(auth);
   };
